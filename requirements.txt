@@ -1,0 +1,6 @@
+# Core dependencies
+neo4j==5.13.0          # Connects Python to Neo4j database
+requests==2.31.0       # Handles API calls (NVD API, web requests)
+beautifulsoup4==4.12.2 # Web scraping to extract CPEs
+lxml==4.9.3            # Faster HTML parsing for BeautifulSoup
+concurrent.futures     # Built-in module for multithreading (no need to install)
