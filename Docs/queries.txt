@@ -1,0 +1,69 @@
+
+// for loading cve data :  
+
+LOAD CSV WITH HEADERS FROM 'file:///cleaned_github_secbench_patches.csv' AS row
+WITH row WHERE row.cve_id IS NOT NULL AND row.cve_id <> ''
+MERGE (github_patch:GithubSecBenchPatch {cve_id: row.cve_id})
+SET github_patch.cwe_id = row.cwe_id,
+    github_patch.score = toFloat(COALESCE(row.score, '0')),
+    github_patch.severity = row.severity,
+    github_patch.project = row.project,
+    github_patch.language = row.language,
+    github_patch.sha = row.sha,
+    github_patch.year = toInteger(COALESCE(row.year, '0'));
+
+
+// for loading all data : 
+
+            MATCH (n) RETURN n
+
+// for loading PATCHES :
+
+            MATCH (n:Patch) RETURN n
+ 
+// for loading VULNERABILITES : 
+
+            MATCH (n:Vulnerability) RETURN n
+
+// for deleting all existing data :
+
+            MATCH (n) DETACH DELETE n ;
+
+// for connecting all patches and Vulnerabilities :
+
+    MATCH (p:Patch)-[:PATCHES]->(v:Vulnerability)
+    RETURN p, v
+
+
+// for loading security patches :
+
+
+
+// for downloading Vulnerabilities :
+
+        https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=1000
+
+
+// for downloading patches :
+
+        https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-1234
+
+
+
+
+
+// for getting patches for specific Vulnerabilities :
+
+2️⃣ Fetch Patch Information from NVD API
+👉 To get patches for a specific CVE, use this API:
+https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-XXXX-YYYY
+
+Python Script to Fetch Patches
+
+This script will:
+
+    Read the CVE IDs from your Neo4j database.
+    Query the NVD API for each CVE.
+    Extract patch references and store them in Neo4j.
+
+
