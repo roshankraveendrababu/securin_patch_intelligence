@@ -202,7 +202,7 @@ We would like to express our gratitude to the following:
 
 - [@Roshan.K.R](https://github.com/roshankraveendrababu)
 
-- [@Ramkumar.B](https://github.com/roshankraveendrababu)
+- [@Ramkumar.B](https://github.com/Rk-Engineer)
 
 ## 🔗 Links
 
