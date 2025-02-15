@@ -151,6 +151,11 @@ Edit config/config.json with your Neo4j credentials and NVD API key:
 ![vulnerabitity-->cpe](https://github.com/user-attachments/assets/67f5ebcf-5b15-4c4c-916f-b3a4fa0c1083)
 
 
+## Demo Video
+
+https://github.com/user-attachments/assets/9ed3e190-c2c7-4fde-90e0-e4aa4ef2f684
+
+
 ## 🛠 Running the Project
 1️⃣ Import Vulnerabilities (CVEs)
 ```bash
